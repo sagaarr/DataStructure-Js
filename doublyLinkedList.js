@@ -58,6 +58,21 @@ pop(){
   this.length--;
   return currentTail;
 }
+
+shift(){
+  if(!this.head) return "Nothing to Remove"
+  let shiftHead = this.head.next ;
+  if(this.length == 1){
+    this.head = null,
+    this.tail = null
+  } else{
+    this.head.next = null;
+    shiftHead.prev = null;
+    this.head = shiftHead;
+  }
+  this.length--;
+  return this;
+}
 }
 
 
