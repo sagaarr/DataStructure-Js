@@ -131,6 +131,36 @@ get(index){
   }
   return current;
 }
+
+set(index, val){
+  if(index < 0 || index >= this.length){
+    return "Invalid Input"
+  } 
+  let changeVal = this.get(index);
+  changeVal.val = val;
+  return true
+  // let changeVal = this.get(index);
+  // if(changeVal !== null){
+  //   changeVal.val = val;
+  //   return true
+  // }
+  // return false
+  // }
+}
+
+insert(index, val){
+  if(index < 0 || index > this.length) return "Invalid input"
+  if(index == 0) return !!this.unshift(val)
+  if(index === this.length) return !!this.push(val)
+  let newVal = new Node(val);
+  let location = this.get(index -1);
+  let nextLocation = location.next;
+  newVal.next = nextLocation, newVal.prev = location;
+  location.next = newVal, nextLocation.prev = newVal;
+  this.length++ ;
+  return true;
+}
+
 }
 
 
