@@ -73,6 +73,64 @@ shift(){
   this.length--;
   return this;
 }
+
+unshift(val){
+  let newHeader = new Node(val);
+  if(!this.head){
+    //if(this.length == 0)
+    this.head = newHeader;
+    this.tail = this.head
+  }else{
+    newHeader.next = this.head;
+    this.head.prev = newHeader;
+    this.head = newHeader;
+  }
+  this.length++;
+  return this;
+}
+
+// get(index){
+//   if(index < 0 || index >= this.length) return "Invalid input"
+//   let middle = Math.floor(this.length / 2);
+//   let start = this.head
+//   let end = this.tail;
+
+//   for(let i = 0 ; i<= middle + 1 ; i++){
+//     if(i == index){
+//       return start
+//     }else{
+//       start = this.head.next
+//     }
+//   }
+
+//   for(let j = this.length + 1; j > middle ; j--){
+//     if(j == index){
+//       return end
+//     }else{
+//       end = this.tail.prev
+//     }
+//   }
+// }
+get(index){
+  if(index < 0 || index >= this.length) return null;
+  var count, current;
+  if(index <= this.length/2){
+      count = 0;
+      current = this.head;
+      while(count !== index){
+          current = current.next;
+          count++;
+      }
+  } else {
+      count = this.length - 1;
+      current = this.tail;
+      while(count !== index){
+          current = current.prev;
+          count--;
+      }
+  }
+  return current;
+}
 }
 
 
@@ -80,4 +138,6 @@ let list = new DoublyLinkdList();
 
 list.push(100)
 list.push(200)
+list.push("sagar")
+list.push("chinchorkar")
 list.push("last Item")
