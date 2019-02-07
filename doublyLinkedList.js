@@ -161,6 +161,19 @@ insert(index, val){
   return true;
 }
 
+remove(index){
+  if(index < 0 || index >= this.length) return "Invalid input";
+  if(index === 0) return this.shift();
+  if(index === this.length) return this.pop();
+  let removeEle = this.get(index -1);
+  let before = removeEle.prev;
+  let above = removeEle.next;
+  before.next = above;
+  above.prev = before;
+  this.length--;
+  return removeEle;
+}
+
 }
 
 
