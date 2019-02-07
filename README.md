@@ -4,7 +4,7 @@
       <strong>You find how to implement different dataStructures using only Js !!! </strong>
     </p>
   
-    <ul>
+ <ul>
       <li>
         <h3>So, Why singly-linked-list ?</h3>
         <p>It has surtain advantages over arrays !! But what are the advantages ? arrays are slow as its Big O is greater in certain cases.</p>
