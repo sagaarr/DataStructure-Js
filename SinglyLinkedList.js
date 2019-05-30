@@ -25,7 +25,7 @@ class SinglyLinkedList{
       // here we assign what to point next and assigning the next which will point to what it should look next
       this.tail.next = NewNode;
       // So, After that we are updating tail with the last node which was passed to make it new tail;
-      this.tail = NewNode;
+       this.tail = NewNode;
     }
     
     this.length ++;
@@ -158,9 +158,6 @@ remove(index){
 
 var list = new SinglyLinkedList()
 
-list.push(100)
-list.push(200)
-list.push(300)
 
 // this is the bad way of representing singly linked list
 /*
