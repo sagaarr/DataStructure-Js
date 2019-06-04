@@ -37,7 +37,7 @@ class BST{
   }
 
   find(value){
-    if(!this.root) return false;
+    if(this.root == null) return false;
     let current = this.root,
         found = false;
     while(current && !found){
@@ -51,10 +51,17 @@ class BST{
         // this condition only be executed if "value" nither greater than or less than the current.value !!!
         found = true;
       }
-      if(!found) return undefined;
-      return current;
     }
+    if(!found) return undefined;
+    return current;
   }
 }
 
 let tree = new BST();
+tree.insert(10)
+tree.insert(5)
+tree.insert(13)
+tree.insert(11)
+tree.insert(2)
+tree.insert(16)
+tree.insert(7)
