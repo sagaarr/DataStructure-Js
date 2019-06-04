@@ -51,6 +51,7 @@ class BST{
         // this condition only be executed if "value" nither greater than or less than the current.value !!!
         found = true;
       }
+      if(!found) return undefined;
       return current;
     }
   }
