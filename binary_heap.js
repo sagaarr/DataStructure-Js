@@ -28,6 +28,45 @@ class MaxBinaryHeaps{
     }
   }
   
+  extractMax(){
+    const max = this.value[0];
+    const end = this.value.pop();
+    this.value[0] = end;
+    this.sinkDown();
+    return max;
+  }
+
+  sinkDown(){
+    let idx = 0;
+    const length = this.value.length;
+    const element = this.value[0];
+    while(true){
+      let leftChildIndex = 2 * idx + 1;
+      let rightChildIndex = 2* idx + 2;
+      let leftChild, rightChild;
+      let swap = null;
+
+      if(leftChildIndex < length){
+        leftChild = this.value[leftChildIndex];
+        if(leftChild > element){
+          swap = leftChildIndex;
+        }
+      }
+      if(rightChildIndex < length){
+        rightChild = this.value[rightChildIndex];
+        if((swap === null && rightChild > element) ||
+        (swap !== null && rightChild > leftChild)
+        ){
+            swap = rightChildIndex;
+        }
+      }
+      if(swap === null) break;
+      this.value[idx] = this.value[swap];
+      this.value[swap] = element;
+      idx = swap;
+
+    }
+  }
 }
 
 let heap = new MaxBinaryHeaps();
